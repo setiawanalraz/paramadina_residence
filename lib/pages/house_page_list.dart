@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:paramadina_residence/models/house_model.dart';
 
 import '../widgets/my_appbar.dart';
+import '../widgets/my_bottom_nav_bar.dart';
 import 'house_page_detail.dart';
 
 class HousePageList extends StatelessWidget {
@@ -31,6 +32,14 @@ class HousePageList extends StatelessWidget {
                           tag: houseList[index].id,
                           child: Image.asset(
                             houseList[index].imgUrl,
+                            height: (MediaQuery.of(context).orientation ==
+                                    Orientation.portrait)
+                                ? MediaQuery.of(context).size.height / 4
+                                : MediaQuery.of(context).size.height,
+                            width: (MediaQuery.of(context).orientation ==
+                                    Orientation.portrait)
+                                ? MediaQuery.of(context).size.width
+                                : MediaQuery.of(context).size.width,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -63,7 +72,9 @@ class HousePageList extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return HousePageDetail(houseModel: houseList[index],);
+                            return HousePageDetail(
+                              houseModel: houseList[index],
+                            );
                           },
                         ),
                       );

@@ -19,14 +19,7 @@ class HousePageDetail extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const HousePageList();
-                },
-              ),
-            );
+            Navigator.pop(context);
           },
         ),
         title: Text(
@@ -41,8 +34,6 @@ class HousePageDetail extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.30,
               padding: const EdgeInsets.all(12),
               child: Hero(
                 tag: houseModel.id,
@@ -50,6 +41,14 @@ class HousePageDetail extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     houseModel.imgUrl,
+                    height: (MediaQuery.of(context).orientation ==
+                            Orientation.portrait)
+                        ? MediaQuery.of(context).size.height / 4
+                        : MediaQuery.of(context).size.height,
+                    width: (MediaQuery.of(context).orientation ==
+                            Orientation.portrait)
+                        ? MediaQuery.of(context).size.width
+                        : MediaQuery.of(context).size.width,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -80,16 +79,16 @@ class HousePageDetail extends StatelessWidget {
                 onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(
+                      onPressed: null,
+                      icon: FaIcon(
                         FontAwesomeIcons.whatsapp,
                         color: Colors.green,
                       ),
                     ),
-                    const SizedBox(width: 5),
-                    const Text(
+                    SizedBox(width: 5),
+                    Text(
                       "Hubungi kami",
                       style: TextStyle(color: Colors.green),
                     ),
