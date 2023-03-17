@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'house_page_list.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../models/house_model.dart';
 
@@ -11,6 +10,15 @@ class HousePageDetail extends StatelessWidget {
     Key? key,
     required this.houseModel,
   }) : super(key: key);
+
+  void _launchWhatsApp(String number, String message) async {
+    String url = "https://api.whatsapp.com/send?phone=$number&text=$message";
+
+    await launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.externalApplication,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +84,12 @@ class HousePageDetail extends StatelessWidget {
                     },
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  _launchWhatsApp(
+                    "6285882036847",
+                    "Halo *The Paramadians*, \nSaya sangat tertarik untuk memiliki hunian *${houseModel.title}* di *Paramadina Residence* dan ingin membicarakan lebih lanjut",
+                  );
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [

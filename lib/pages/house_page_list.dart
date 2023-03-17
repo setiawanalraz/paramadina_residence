@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:paramadina_residence/models/house_model.dart';
 
 import '../widgets/my_appbar.dart';
-import '../widgets/my_bottom_nav_bar.dart';
 import 'house_page_detail.dart';
 
 class HousePageList extends StatelessWidget {
