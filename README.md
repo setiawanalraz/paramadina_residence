@@ -19,3 +19,4 @@ Dependencies used for this app:
 - cupertino_icons: ^1.0.2
 - font_awesome_flutter: ^10.4.0
 - url_launcher: ^6.1.6
+- google_maps_flutter ^2.2.5
