@@ -26,6 +26,28 @@ class LocationPageState extends State<LocationPage> {
     zoom: 18,
   );
 
+  final LatLng _targetMarker = const LatLng(-6.5378962, 106.7352588);
+
+  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
+
+  @override
+  void initState() {
+    addCustomIcon();
+    super.initState();
+  }
+
+  void addCustomIcon() {
+    BitmapDescriptor.fromAssetImage(const ImageConfiguration(),
+            "assets/images/custom_location_marker.png")
+        .then(
+      (icon) {
+        setState(() {
+          markerIcon = icon;
+        });
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +59,30 @@ class LocationPageState extends State<LocationPage> {
           _controller.complete(controller);
         },
         zoomControlsEnabled: false,
+        markers: {
+          Marker(
+            markerId: const MarkerId("target_marker"),
+            position: _targetMarker,
+            icon: markerIcon,
+            infoWindow: const InfoWindow(title: "Paramadina Residence"),
+          ),
+        },
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
-        onPressed: _goToTargetLocation,
-        child: const Icon(
-          Icons.location_on,
-          color: Colors.white,
-        ),
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            right: 0,
+            bottom: 45,
+            child: FloatingActionButton(
+              backgroundColor: Colors.green,
+              onPressed: _goToTargetLocation,
+              child: const Icon(
+                Icons.location_on,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
