@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../pages/home_page.dart';
 import '../pages/house_page_list.dart';
+import '../pages/location_page.dart';
 
 class MyBottomNavBar extends StatefulWidget {
   const MyBottomNavBar({super.key});
@@ -15,7 +16,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   final screens = [
     const HomePage(),
     const HousePageList(),
-    const Center(),
+    const LocationPage(),
   ];
 
   @override
