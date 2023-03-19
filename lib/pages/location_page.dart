@@ -17,16 +17,16 @@ class LocationPageState extends State<LocationPage> {
       Completer<GoogleMapController>();
 
   static const CameraPosition _initPosition = CameraPosition(
-    target: LatLng(-6.5378962, 106.7352588),
+    target: LatLng(-6.5481390, 106.7513964),
     zoom: 14,
   );
 
   static const CameraPosition _targetPosition = CameraPosition(
-    target: LatLng(-6.5378962, 106.7352588),
+    target: LatLng(-6.5481390, 106.7513964),
     zoom: 18,
   );
 
-  final LatLng _targetMarker = const LatLng(-6.5378962, 106.7352588);
+  final LatLng _targetMarker = const LatLng(-6.5481390, 106.7513964);
 
   BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
 
