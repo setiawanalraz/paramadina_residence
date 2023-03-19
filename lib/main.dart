@@ -17,12 +17,23 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.green,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
           centerTitle: true,
         ),
         iconButtonTheme: IconButtonThemeData(
           style: ButtonStyle(
             iconColor: MaterialStateProperty.all(Colors.white),
           ),
+        ),
+        dialogTheme: const DialogTheme(
+          surfaceTintColor: Colors.green,
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(foregroundColor: Colors.green),
         ),
       ),
       home: const MyBottomNavBar(),

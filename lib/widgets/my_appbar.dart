@@ -23,7 +23,20 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showAboutDialog(
+                context: context,
+                applicationIcon: Image.asset(
+                  "assets/images/app_logo.png",
+                  width: 50,
+                  height: 50,
+                ),
+                applicationName: "Paramadina Residence",
+                applicationVersion: "1.0.0",
+                applicationLegalese:
+                    "The Paramadians, living the most beautiful life",
+              );
+            },
             icon: const Icon(Icons.info),
           ),
         ],
