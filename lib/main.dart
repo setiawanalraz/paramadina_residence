@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/my_bottom_nav_bar.dart';
+import 'widgets/my_will_pop_scope.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           style: TextButton.styleFrom(foregroundColor: Colors.green),
         ),
       ),
-      home: const MyBottomNavBar(),
+      home: const MyWillPopScope(),
       debugShowCheckedModeBanner: false,
     );
   }
